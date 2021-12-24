@@ -12,6 +12,7 @@ canvas{
   border: 0;
   text-align: center;
   color: #691d53;
+  z-index: 950;
   font-family: 'Faster One';
   src: local('Faster One'), url(https://fonts.googleapis.com/icon?family=Material+Icons) format('com');
   padding-top: 250px;

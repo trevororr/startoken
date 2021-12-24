@@ -30,11 +30,11 @@ with open("stars.json", "r") as stars:
             },
             {
             "trait_type":"size",
-            ""
-            }
+            "value":""
+            },
             {
             "trait_type":"constellation",
-            ""
+            "value":""
             }
             ]
         })

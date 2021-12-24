@@ -12,7 +12,7 @@ sizes = {
     35:"super giant",
     30:"giant",
     20: "sub giant",
-    10:"main sequence",
+    10:"sub dwarf",
     15:"main sequence",
     5:"dwarf"
 }

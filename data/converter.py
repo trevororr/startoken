@@ -30,12 +30,18 @@ with open("stars.json", "r") as stars:
             },
             {
             "trait_type":"size",
-            "value":""
+            "value":sizes[int(star[2])]
+            },
+            {
+            "trait_type":"constituents",
+            "value":star[3]
             },
             {
             "trait_type":"constellation",
-            "value":""
+            "value":star[4]
             }
             ]
         })
-print(nfts[0])
+for nft in nfts:
+    with open("token_uri/"+nft["name"]+".json", "w") as token_uri:
+        json.dump(nft, token_uri)

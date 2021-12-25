@@ -15,6 +15,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="/stars" element={<Stars />} />
+          
         </Route>
       </Routes>
     </div>

@@ -2,8 +2,8 @@ import React from 'react';
 
 function Home() {
   return (
-    <div align='center'>
-        <h1  id="titleText">StarToken</h1>
+    <div className='centered'>
+        <h1 id="titleText">StarToken</h1>
     </div>
   );
 }

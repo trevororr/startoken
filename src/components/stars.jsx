@@ -1,18 +1,10 @@
 import React from 'react';
-
-async function getStars(){
-  let response = await fetch('./starData.json')
-  return await response.json();
-}
+import {Form} from 'react-bootstrap';
 
 function Stars() {
-  var stars = getStars();
-  console.log(stars);
-
   return (
-    <div align='center'>
-        <h1 id="titleText">Stars</h1>
-        
+    <div className='centered'>
+        <Form id='foreground'><Form.Control placeholder="Star Name" style={{backgroundColor:'#000000',color:'#ffffff'}} id='nameBar' /></Form>
     </div>
   );
 }

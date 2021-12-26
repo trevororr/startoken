@@ -9,6 +9,7 @@ const Layout = () => {
         <Nav className="me-auto">
           <Nav.Link><Link to='/' style={{textDecoration:'none', color:'white'}}>Home</Link></Nav.Link>
           <Nav.Link><Link to='/stars' style={{textDecoration:'none', color:'white'}}>Stars</Link></Nav.Link>
+          <Nav.Link><Link to='/about' style={{textDecoration:'none', color:'white'}}>About</Link></Nav.Link>
         </Nav>
         </Container>
       </Navbar>

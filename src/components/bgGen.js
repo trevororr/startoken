@@ -1,7 +1,7 @@
 function bgGen() {
     let canvas = document.getElementById("starCanvas")
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    canvas.width = window.screen.width;
+    canvas.height = window.screen.height;
     
 	let ctx = canvas.getContext('2d');
 	ctx.fillStyle = '#000000';

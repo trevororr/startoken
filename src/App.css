@@ -35,13 +35,13 @@ canvas{
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 900;
+  z-index: 910;
 }
 
 #foreground {
   width: 90%;
   max-width: 40em;
   padding-top: 200px;
-  z-index: 900;
+  z-index: 910;
   position: fixed;
 }

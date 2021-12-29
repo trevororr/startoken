@@ -4,7 +4,7 @@
 
 import json
 
-ipfs_link = "https://ipfs.io/ipfs/Qme4JEXh5seBfTJ66fbLAV48S1A3mKhbwdfgGVGhMbF5WZ/"
+ipfs_link = "https://gateway.pinata.cloud/ipfs/Qme4JEXh5seBfTJ66fbLAV48S1A3mKhbwdfgGVGhMbF5WZ/"
 nfts = []
 token_uri_json = {}
 sizes = {

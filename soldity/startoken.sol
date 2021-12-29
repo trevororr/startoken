@@ -7,7 +7,7 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 contract starNFT is ERC721 {
     address public owner;
     uint256 public price;
-    string  public baseuri = "https://ipfs.io/ipfs/QmRVMn7yqKfPBhZXpjQhKukYQ85EsKwk4xFsJDWGqjdmbi/";
+    string  public baseuri = "https://gateway.pinata.cloud/ipfs/QmYsewPq7VhPhfQ4bLNWi2RVHnuMZ26tonk5Ms2XHnJJ53/";
 
     mapping(uint256 => string) private _tokenURIs;
     function tokenURI(uint256 tokenId) public view virtual override returns (string memory) {

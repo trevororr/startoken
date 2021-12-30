@@ -1,37 +1,28 @@
 import React, {useState} from 'react';
-import {Form} from 'react-bootstrap';
+import {Form,Card} from 'react-bootstrap';
 
 function Stars() {
-  const [data , setData]=useState(null)
+  const [data, setData]=useState({})
 
   // Fetch Function   
-  fetch("/data/starData.json").then(
-    res => res.json())          // convert to plain text
-  .then(text => console.log(text))
-  .then(function(data){
-    setData(data)
-  }).catch(
-    function(err){
-      console.log(err, ' error')
-    }
-  )
+  fetch("/data/starData.json")
+    .then(response => response.text())
+    .then(d => setData(JSON.parse(d)))
+    .catch(function(err){console.log(err, ' error')})
   
-  // use data State Variable For Get Data Use JavaScript Map Mathod
-  const starLayout=data? data.map(
-    function(data){
-      return (<div className="card"> 
-              <h4>{data[0]}</h4>
-              </div>)
-    }
-  ):""
+  const imgLayout = Object.keys(data).map((key)=>{
+    return <div className='col'><Card style={{width:'100px',background:'#00000000', paddingBottom:'25px'}}><img width="100" height="100" key={key} alt={key}src={data[key]}/></Card></div>
+  });
 
   return (
     <>
     <div className='centered'>
-      <Form id='foreground'><Form.Control placeholder="Star Name" style={{backgroundColor:'#000000',color:'#ffffff'}} id='nameBar' /></Form>
+      <Form className='foreground'><Form.Control placeholder="Star Name" style={{backgroundColor:'#000000',color:'#ffffff'}} id='nameBar' /></Form>
     </div>
-    <div className='centered'>
-      <ul>{starLayout}</ul>
+    <div className='starContainer'>
+    <div className='row' style={{width:'80%'}}>
+      {loadedImgs}
+    </div>
     </div>
     </>
   );

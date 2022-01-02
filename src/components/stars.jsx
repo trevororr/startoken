@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Form,Card} from 'react-bootstrap';
+import { Link } from "react-router-dom";
 
 function Stars() {
   function importAll(r) {
@@ -12,10 +13,12 @@ function Stars() {
   const [allStars, setAllStars]=useState([]);
   const [starCount,setStarCount]=useState(50);
   const [showResults, setShowResults] = useState(true);
+  const [search, setSearch] = useState(false);
   const [stars, setStars] = useState([]);
+
   const loadMore = () => {
     setStarCount(starCount+25)
-    if(starCount>=460){setShowResults(false);}
+    if(starCount>=450){setShowResults(false);}
   };
 
   const loadAll = () => {
@@ -29,50 +32,54 @@ function Stars() {
       .catch((error)=>console.log(error))
       .then((data)=>{
         setAllStars(data)
-        setStars(Object.keys(allStars).slice(0,starCount).map((key)=>{
-          console.log("here");
-          return(
-            <div key={key} className='col'>
-              <Card style={{width:'100px', background:'#00000000', paddingBottom:'25px'}}>
-                <img width="100" height="100" key={key} alt={key} src={images[allStars[key]]}/>
-              </Card>
-            </div>
-        )}));
       }).catch((err)=>console.log(err));
   },[])
-  
-
   
   const filter = (keyword) => {
     if (keyword.length > 0){
       setShowResults(false);
+      setSearch(true);
       let starSearch = Object.keys(allStars).filter(word => word.toLowerCase().includes(keyword)).map((key)=>{
         return(
-          <div key={key} className='col'>
+          <div key={key} className='col' style={{zIndex:'930'}}>
+            <Link to='/starViewer'>
             <Card style={{width:'100px', background:'#00000000', paddingBottom:'25px'}}>
               <img width="100" height="100" key={key} alt={key} src={images[allStars[key]]}/>
             </Card>
+            </Link>
           </div>
       )});
       console.log(stars);
       setStars(starSearch);
     } else{
-      setShowResults(true);
-      setStarCount(starCount);
+      (starCount>=450)?setShowResults(false):setShowResults(true);
+      setSearch(false);
     }
   };
+
+  const reset = Object.keys(allStars).slice(0,starCount).map((key)=>{
+          return(
+            <div key={key} className='col' style={{zIndex:'930'}}>
+              <Link to='/starViewer'>
+              <Card style={{width:'100px', background:'#00000000', paddingBottom:'25px'}}>
+                <img width="100" height="100" key={key} alt={key} src={images[allStars[key]]}/>
+              </Card>
+              </Link>
+            </div>
+          )});
 
   return (
     <>
     <div className='centered'>
-      
-      <Form className='foreground'><Form.Control onChange={(e) => filter(e.target.value.toLowerCase())} placeholder="Star Name" style={{backgroundColor:'#000000',color:'#ffffff'}} id='nameBar' /></Form>
+      <Form className='foreground'><Form.Control onChange={(e) => filter(e.target.value.toLowerCase())} placeholder="Star Name" style={{backgroundColor:'#000000',color:'#ffffff'}} /></Form>
     </div>
+
     <div className='starContainer'>
     <div className='row' style={{width:'80%', alignContent:'center'}}>
-      {stars}
+      {search===false?reset:stars}
     </div>
     </div>
+    
     <div className='centered' style={{paddingBottom:'15px'}}>
     { showResults ? <button onClick={loadMore} style={{zIndex:'950', width:'50%'}}>Load More</button> : null}
     </div>

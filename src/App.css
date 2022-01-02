@@ -35,14 +35,14 @@ canvas{
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 910;
+  z-index: 930;
 }
 
 .foreground {
   width: 90%;
   max-width: 40em;
   padding-top: 200px;
-  z-index: 910;
+  z-index: 920;
   position: fixed;
 }
 
@@ -51,5 +51,5 @@ canvas{
   flex-direction: column;
   align-items: center;
   padding-top: 150px;
-  z-index: 920;
+  z-index: 910;
 }

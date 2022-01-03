@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Form,Card} from 'react-bootstrap';
-import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 function Stars() {
   function importAll(r) {
@@ -41,12 +41,13 @@ function Stars() {
       setSearch(true);
       let starSearch = Object.keys(allStars).filter(word => word.toLowerCase().includes(keyword)).map((key)=>{
         return(
-          <div key={key} className='col' style={{zIndex:'930'}}>
-            <Link to='/starViewer'>
-            <Card style={{width:'100px', background:'#00000000', paddingBottom:'25px'}}>
-              <img width="100" height="100" key={key} alt={key} src={images[allStars[key]]}/>
-            </Card>
-            </Link>
+          <div key={key} className='col' style={{zIndex:'930'}} align='center'>
+            <motion.div style={{width:'100px'}}  whileHover={{ scale: 1.5 }}>
+              <Card style={{width:'100px', background:'#00000000', paddingBottom:'25px'}}>
+                <img width="100" height="100" key={key} alt={key} src={images[allStars[key]]}/>
+                <p style={{color:'white', width:'100%', textAlign:'center', fontSize:'13px'}}>{key.split('_').join(' ')}</p>
+              </Card>
+            </motion.div>
           </div>
       )});
       console.log(stars);
@@ -59,12 +60,14 @@ function Stars() {
 
   const reset = Object.keys(allStars).slice(0,starCount).map((key)=>{
           return(
-            <div key={key} className='col' style={{zIndex:'930'}}>
-              <Link to='/starViewer'>
+            <div key={key} className='col' style={{zIndex:'930'}} align='center'>
+            <motion.div style={{width:'100px'}} whileHover={{ scale: 1.5 }} onHoverStart={(key) => document.getElementById(key).style.display='block'}>
               <Card style={{width:'100px', background:'#00000000', paddingBottom:'25px'}}>
                 <img width="100" height="100" key={key} alt={key} src={images[allStars[key]]}/>
+                <p style={{color:'white', width:'100%', textAlign:'center', fontSize:'13px'}}>{key.split('_').join(' ')}</p>
+                <p id={key} style={{display:'block', color:'white'}}>poop here</p>
               </Card>
-              </Link>
+            </motion.div>
             </div>
           )});
 
@@ -81,10 +84,10 @@ function Stars() {
     </div>
     
     <div className='centered' style={{paddingBottom:'15px'}}>
-    { showResults ? <button onClick={loadMore} style={{zIndex:'950', width:'50%'}}>Load More</button> : null}
+    { showResults ? <button onClick={loadMore} style={{zIndex:'950', width:'50%'}}>Show More</button> : null}
     </div>
-    <div className='centered'>
-    { showResults ? <button onClick={loadAll} style={{zIndex:'950', width:'50%'}}>Load All</button> : null}
+    <div className='centered' style={{paddingBottom:'15px'}}>
+    { showResults ? <button onClick={loadAll} style={{zIndex:'950', width:'50%'}}>Show All</button> : null}
     </div>
     </>
   );

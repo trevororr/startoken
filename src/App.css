@@ -42,7 +42,7 @@ canvas{
   width: 90%;
   max-width: 40em;
   padding-top: 200px;
-  z-index: 920;
+  z-index: 940;
   position: fixed;
 }
 

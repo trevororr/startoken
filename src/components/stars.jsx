@@ -40,10 +40,10 @@ function Stars() {
     if (keyword.length > 0){
       setShowResults(false);
       setSearch(true);
-      let starSearch = Object.keys(allStars).filter(word => word.toLowerCase().includes(keyword)).map((key)=>{
+      let starSearch = Object.keys(allStars).filter(word => word.toLowerCase().startsWith(keyword)).map((key)=>{
         return(
           <div key={key} className='col' style={{zIndex:'930'}} align='center'>
-            <Link to={{pathname: '/starViewer?'+key}}>
+            <Link to={{pathname: '/starViewer?star='+key}}>
             <motion.div style={{width:'100px'}} whileHover={{ scale: 1.5 }}>
               <Card style={{width:'100px', background:'#00000000', paddingBottom:'25px'}}>
                 <img width="100" height="100" key={key} alt={key} src={images[allStars[key]]}/>
@@ -64,7 +64,7 @@ function Stars() {
   const reset = Object.keys(allStars).slice(0,starCount).map((key)=>{
           return(
             <div key={key} className='col' style={{zIndex:'930'}} align='center'>
-            <Link to={{pathname: '/starViewer?'+key}}>
+            <Link to={{pathname: '/starViewer?star='+key}}>
             <motion.div style={{width:'100px'}} whileHover={{ scale: 1.5 }}>
               <Card style={{width:'100px', background:'#00000000', paddingBottom:'25px'}}>
                 <img width="100" height="100" key={key} alt={key} src={images[allStars[key]]}/>

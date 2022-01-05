@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Button} from 'react-bootstrap';
+import {Card,Button} from 'react-bootstrap';
 
 function StarViewer() {
   const [star, setStar]=useState([]);
@@ -15,30 +15,24 @@ function StarViewer() {
 
     const imgSrc=require('../stars/'+new URLSearchParams(window.location.search).get('star')+'.png');
     const owner='PoopBazooka';
-    const amountOwned=4;
-    const totalAmount=10;
-
-    const buy = () => {
-      console.log('pressed!');
-    }
 
     return (
-    <div className='centered' align='center' style={{paddingTop: '150px',color:'white',textAlign:'center',background:'#00000000', paddingBottom:'25px'}}>
-      <div className='row'>
-      <div className='col' style={{zIndex:'950'}}>
-        <h1>{star['name']}  {owned?'(Sold Out)':null}</h1>
-        <img width="200" height="200" alt='' src={imgSrc} style={{border:'1px solid white', background:'black'}} />
-      </div>
-      <div className='col' style={{zIndex:'950'}}>
-        <p style={{marginTop:'25px'}}>Constellation: {star['constellation']}</p>
-        <p>Size: {star['size']}</p>
-        <p>Number of Constituents: {star['constituents']}</p>
-        <p>Amount Owned: {amountOwned} of {totalAmount}</p>
-        <p>Owner(s): {owner}</p>
-        <Button style={{width:'200px'}} onClick={buy}>Buy</Button>
-      </div>
+      <center>
+    <div className='centered' align='center' style={{paddingTop: '100px', width:'80%', color:'white',textAlign:'center',background:'#00000000', paddingBottom:'25px'}}>
+      <div style={{zIndex:'950', backgroundColor:"black", display:'flex', padding:'40px'}}>
+        
+        <img width="200" height="200" alt='' src={imgSrc} style={{marginBottom:'50px', border:'2px', transform:'translateY(25%)'}} />
+        <div style={{marginLeft:'50px', marginTop:'50px'}}>
+          <h1>{star['name']}  {owned?'(Sold)':null}</h1>
+          <p>Constellation: {star['constellation']}</p>
+          <p>Size: {star['size']}</p>
+          <p>Number of Constituents: {star['constituents']}</p>
+          <p>Owner: {owner}</p>
+          <Button style={{width:'200px'}}>Buy</Button>
+        </div>
       </div>
     </div>
+    </center>
     );
 }
 

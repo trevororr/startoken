@@ -43,15 +43,15 @@ function Stars() {
       let starSearch = Object.keys(allStars).filter(word => word.toLowerCase().startsWith(keyword)).map((key)=>{
         return(
           <div key={key} className='col' style={{zIndex:'930'}} align='center'>
-            <Link to={{pathname: '/starViewer?star='+key}}>
+            <Link to={{pathname: '/starViewer?star='+key}} style={{textDecoration:'none'}}>
             <motion.div style={{width:'100px'}} whileHover={{ scale: 1.5 }}>
               <Card style={{width:'100px', background:'#00000000', paddingBottom:'25px'}}>
-                <img width="100" height="100" key={key} alt={key} src={images[allStars[key]]}/>
+                <img style={{border:'1px solid white', background:'black'}} width="100" height="100" key={key} alt={key} src={images[allStars[key]]}/>
                 <p style={{color:'white', width:'100%', textAlign:'center', fontSize:'13px'}}>{key.split('_').join(' ')}</p>
               </Card>
             </motion.div>
             </Link>
-          </div>
+            </div>
       )});
       console.log(stars);
       setStars(starSearch);
@@ -64,10 +64,10 @@ function Stars() {
   const reset = Object.keys(allStars).slice(0,starCount).map((key)=>{
           return(
             <div key={key} className='col' style={{zIndex:'930'}} align='center'>
-            <Link to={{pathname: '/starViewer?star='+key}}>
+            <Link to={{pathname: '/starViewer?star='+key}} style={{textDecoration:'none'}}>
             <motion.div style={{width:'100px'}} whileHover={{ scale: 1.5 }}>
               <Card style={{width:'100px', background:'#00000000', paddingBottom:'25px'}}>
-                <img width="100" height="100" key={key} alt={key} src={images[allStars[key]]}/>
+                <img style={{border:'1px solid white', background:'black'}} width="100" height="100" key={key} alt={key} src={images[allStars[key]]}/>
                 <p style={{color:'white', width:'100%', textAlign:'center', fontSize:'13px'}}>{key.split('_').join(' ')}</p>
               </Card>
             </motion.div>

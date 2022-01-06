@@ -9,16 +9,34 @@ import {Route,Routes} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import Web3 from "web3";
 import WalletConnectProvider from "@walletconnect/web3-provider";
+import Web3Modal from "web3modal";
 import { Web3Context } from './components/contexts/web3context';
+import fortmatic from 'fortmatic';
+
 
 const connectWeb3 = async () => {
   //  Create WalletConnect Provider
-  const provider = new WalletConnectProvider({
-    infuraId: "a624db2ddf3c49a0afec9d2f90a6d3dd", 
+  const providerOptions = {
+    walletconnect: {
+      package : WalletConnectProvider, 
+      options: {
+        infuraId: "a624db2ddf3c49a0afec9d2f90a6d3dd",
+      } 
+    },
+    fortmatic:{
+      package: fortmatic,
+      options: {
+        key: 'pk_live_DC8BCA9D3AE99BE9'
+      }
+    }
+  }
+  const web3Modal = new Web3Modal({
+    cacheProvider: false, // optional
+    providerOptions, // required
+    
   });
-
   //  Enable session (triggers QR Code modal)
-  await provider.enable();
+  const provider = await web3Modal.connect();
 
   //  Create Web3
   return new Web3(provider);

@@ -19,10 +19,10 @@ function StarViewer() {
     return (
       <center>
     <div className='centered' align='center' style={{paddingTop: '100px', width:'80%', color:'white',textAlign:'center',background:'#00000000', paddingBottom:'25px'}}>
-      <div style={{zIndex:'950', backgroundColor:"black", display:'flex', padding:'40px'}}>
+      <div style={{zIndex:'950', backgroundColor:"black", display:'flex', padding:'40px'}} className='row'>
         
-        <img width="200" height="200" alt='' src={imgSrc} style={{marginBottom:'50px', border:'2px', transform:'translateY(25%)'}} />
-        <div style={{marginLeft:'50px', marginTop:'50px'}}>
+        <img className='col' width="200" height="200" alt='' src={imgSrc} style={{marginBottom:'50px', border:'2px', transform:'translateY(25%)'}} />
+        <div style={{marginLeft:'50px', marginTop:'50px'}} className='col'>
           <h1>{star['name']}  {owned?'(Sold)':null}</h1>
           <p>Constellation: {star['constellation']}</p>
           <p>Size: {star['size']}</p>

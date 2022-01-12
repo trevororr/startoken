@@ -39,7 +39,9 @@ const connectWeb3 = async () => {
   const provider = await web3Modal.connect();
 
   //  Create Web3
-  return new Web3(provider);
+  const web3 = new Web3(provider);
+  console.log(web3)
+  return web3;
 }
 
 function App() {

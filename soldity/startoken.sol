@@ -1,4 +1,3 @@
-
 pragma solidity ^0.8.0;
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
@@ -8,7 +7,7 @@ contract starNFT is ERC721 {
     address public owner;
     uint256 public price;
     string  public baseuri = "https://gateway.pinata.cloud/ipfs/QmYsewPq7VhPhfQ4bLNWi2RVHnuMZ26tonk5Ms2XHnJJ53/";
-
+    uint256 public contractValue = 0;
     mapping(uint256 => string) private _tokenURIs;
     function tokenURI(uint256 tokenId) public view virtual override returns (string memory) {
         require(_exists(tokenId), "ERC721URIStorage: URI query for nonexistent token");
@@ -66,6 +65,14 @@ contract starNFT is ERC721 {
         }
         price = newprice;
     }
+    function withdrawl() public {
+        if(msg.sender != owner){
+            revert("not owner");
+        }
+        payable(msg.sender).transfer(address(this).balance);
+        
+        contractValue = 0;
+    }
     function create_Star(uint16 starid) public payable{
         
         string memory uri = string(abi.encodePacked(baseuri,uintToString(starid),".json"));
@@ -75,6 +82,7 @@ contract starNFT is ERC721 {
         if(starid > 466){
             revert("invalid star id");
         }
+        contractValue = contractValue + msg.value;
         _safeMint(msg.sender, starid);
         _setTokenURI(starid, uri);
         

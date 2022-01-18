@@ -65,7 +65,7 @@ contract starNFT is ERC721 {
         }
         price = newprice;
     }
-    function withdrawl() public {
+    function withdrawal() public {
         if(msg.sender != owner){
             revert("not owner");
         }

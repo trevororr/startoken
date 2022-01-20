@@ -14,12 +14,6 @@ function About() {
             </Card.Body>
           </Card>
           <Card style={{margin:'50px 0 50px 0'}}>
-            <Card.Header style={{fontSize: "1.6em", backgroundColor:'#212529', color:'white'}}  className="text-center">Rarity System</Card.Header>
-            <Card.Body style={{background:'#303030', color:'white'}}>
-              <p>Some stars will only have one copy that will be sold on a first come first serve basis.</p>
-            </Card.Body>
-          </Card>
-          <Card style={{margin:'50px 0 50px 0'}}>
             <Card.Header style={{fontSize: "1.6em", backgroundColor:'#212529', color:'white'}}  className="text-center">OpenSea Compatibility</Card.Header>
             <Card.Body style={{background:'#303030', color:'white'}}>
               <p>All stars will be able to be resold on OpenSea.</p>

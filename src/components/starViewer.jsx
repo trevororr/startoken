@@ -1,9 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import {Card,Button} from 'react-bootstrap';
+import {Button} from 'react-bootstrap';
 
 function StarViewer() {
   const [star, setStar]=useState([]);
-  const [owned, setOwned]=useState(true);
 
     useEffect(()=>{
         fetch("/data/starMeta/"+new URLSearchParams(window.location.search).get('star')+".json")
@@ -14,22 +13,23 @@ function StarViewer() {
     },[])
 
     const imgSrc=require('../stars/'+new URLSearchParams(window.location.search).get('star')+'.png');
-    const owner='PoopBazooka';
 
     return (
       <center>
     <div className='centered' align='center' style={{paddingTop: '100px', width:'80%', color:'white',textAlign:'center',background:'#00000000', paddingBottom:'25px'}}>
-      <div style={{zIndex:'950', backgroundColor:"black", display:'flex', padding:'40px'}}>
-        
-        <img width="200" height="200" alt='' src={imgSrc} style={{marginBottom:'50px', border:'2px', transform:'translateY(25%)'}} />
-        <div style={{marginLeft:'50px', marginTop:'50px'}}>
-          <h1>{star['name']}  {owned?'(Sold)':null}</h1>
-          <p>Constellation: {star['constellation']}</p>
-          <p>Size: {star['size']}</p>
-          <p>Number of Constituents: {star['constituents']}</p>
-          <p>Owner: {owner}</p>
-          <Button style={{width:'200px'}}>Buy</Button>
+      <div style={{zIndex:'950', backgroundColor:"black", display:'flex', padding:'10px 40px 40px 40px', border:'1px white solid'}}>
+        <div classname='row'>
+          <div className='col'>
+            <img width="200" height="200" alt='' src={imgSrc} style={{marginBottom:'50px', border:'2px', transform:'translateY(25%)'}} />
+          </div>
+          <div style={{marginTop:'50px'}}>
+            <h1>{star['name']}</h1>
+            <p>Constellation: {star['constellation']}</p>
+            <p>Size: {star['size']}</p>
+            <p>Number of Constituents: {star['constituents']}</p>
+            <Button style={{width:'200px', background:'#212529', border:'white'}}>Buy</Button>
         </div>
+      </div>
       </div>
     </div>
     </center>

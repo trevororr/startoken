@@ -27,7 +27,7 @@ function StarViewer() {
             <p>Constellation: {star['constellation']}</p>
             <p>Size: {star['size']}</p>
             <p>Number of Constituents: {star['constituents']}</p>
-            <Button style={{width:'200px', background:'#212529', border:'white'}}>Buy</Button>
+            <a href='https://opensea.io/collection/startokennft'><Button style={{width:'200px', background:'#212529', border:'white'}}>Buy</Button></a>
         </div>
       </div>
       </div>

@@ -11,6 +11,8 @@ function Stars() {
    }
   const images = importAll(require.context('../stars', false, /\.(png)$/));
 
+  const favorites =['Achernar', 'Acrab', 'Adhil', 'Ainalrami', 'Al_Minlair_al_Asad', 'Aladfar', 'Alcor', 'Alcyone', 'Aldebaran', 'Alnair', 'Alnilam', 'Alphard', 'Alpherg', 'Aniara', 'Barnards_Star', 'Baten_Kaitos', 'Belel', 'Capella', 'Chaophraya', 'Chason', 'Citala', 'Formosa', 'Garnet_Star', 'Guniibuu', 'Kabbab', 'Kamuy', 'Kitalpha', 'La_Superba', 'Maasym', 'Marfik', 'Mazaalai', 'Mouhoun', 'Mpingo', 'Polis', 'Proxima_Centauri', 'Rosaliadecastro', 'Sansuna', 'Sharjah', 'Sika', 'Solaris', 'Sualocin', 'Sun', 'Taika', 'Tislit', 'Tuiren', 'Tupi', 'Unukalhai', 'Vega', 'Wezen', 'Zubenelhakrabi'];
+
   const [allStars, setAllStars]=useState([]);
   const [starCount,setStarCount]=useState(50);
   const [showResults, setShowResults] = useState(true);
@@ -40,13 +42,16 @@ function Stars() {
     if (keyword.length > 0){
       setShowResults(false);
       setSearch(true);
+      let isFav = 'white';
       let starSearch = Object.keys(allStars).filter(word => word.toLowerCase().startsWith(keyword)).map((key)=>{
+        favorites.contains(key)?isFav='orange':isFav='white';
+
         return(
           <div key={key} className='col' style={{zIndex:'930'}} align='center'>
             <Link to={{pathname: '/starViewer?star='+key}} style={{textDecoration:'none'}}>
             <motion.div style={{width:'100px'}} whileHover={{ scale: 1.5 }}>
               <Card style={{width:'100px', background:'#00000000', paddingBottom:'25px'}}>
-                <img style={{border:'1px solid white', background:'black'}} width="100" height="100" key={key} alt={key} src={images[allStars[key]]}/>
+                <img style={{border:'1px solid '+{isFav}, background:'black'}} width="100" height="100" key={key} alt={key} src={images[allStars[key]]}/>
                 <p style={{color:'white', width:'100%', textAlign:'center', fontSize:'13px'}}>{key.split('_').join(' ')}</p>
               </Card>
             </motion.div>

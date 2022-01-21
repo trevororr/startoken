@@ -13,11 +13,12 @@ function StarViewer() {
     },[])
 
     const imgSrc=require('../stars/'+new URLSearchParams(window.location.search).get('star')+'.png');
+    const isFav=star['favorite']?'orange':'white';
 
     return (
       <center>
     <div className='centered' align='center' style={{paddingTop: '100px', width:'80%', color:'white',textAlign:'center',background:'#00000000', paddingBottom:'25px'}}>
-      <div style={{zIndex:'950', backgroundColor:"black", display:'flex', padding:'10px 40px 40px 40px', border:'1px white solid'}}>
+      <div style={{zIndex:'950', backgroundColor:"black", display:'flex', padding:'10px 40px 40px 40px', border:'1px '+isFav+' solid'}}>
         <div classname='row'>
           <div className='col'>
             <img width="200" height="200" alt='' src={imgSrc} style={{marginBottom:'50px', border:'2px', transform:'translateY(25%)'}} />

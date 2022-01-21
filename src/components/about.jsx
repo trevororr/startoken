@@ -16,7 +16,7 @@ function About() {
           <Card style={{margin:'50px 0 50px 0'}}>
             <Card.Header style={{fontSize: "1.6em", backgroundColor:'#212529', color:'white'}}  className="text-center">Favorite System</Card.Header>
             <Card.Body style={{background:'#303030', color:'white'}}>
-              <p>50 stars have been chosen to be favorited and will be auctioned off after all the common stars are sold.</p>
+              <p>50 stars have been chosen to be favorited and will be auctioned off after all of the common stars are sold. These will be signified by an orange border.</p>
             </Card.Body>
           </Card>
           <Card style={{margin:'50px 0 50px 0'}}>

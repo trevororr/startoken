@@ -14,9 +14,15 @@ function About() {
             </Card.Body>
           </Card>
           <Card style={{margin:'50px 0 50px 0'}}>
+            <Card.Header style={{fontSize: "1.6em", backgroundColor:'#212529', color:'white'}}  className="text-center">Favorite System</Card.Header>
+            <Card.Body style={{background:'#303030', color:'white'}}>
+              <p>50 stars have been chosen to be favorited and will be auctioned off after all the common stars are sold.</p>
+            </Card.Body>
+          </Card>
+          <Card style={{margin:'50px 0 50px 0'}}>
             <Card.Header style={{fontSize: "1.6em", backgroundColor:'#212529', color:'white'}}  className="text-center">OpenSea Compatibility</Card.Header>
             <Card.Body style={{background:'#303030', color:'white'}}>
-              <p>All stars will be able to be resold on OpenSea.</p>
+              <p>All stars will be able to be bought and sold on OpenSea.</p>
             </Card.Body>
           </Card>
         </div>

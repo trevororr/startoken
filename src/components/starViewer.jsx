@@ -14,6 +14,7 @@ function StarViewer() {
 
     const imgSrc=require('../stars/'+new URLSearchParams(window.location.search).get('star')+'.png');
     const isFav=star['favorite']?'orange':'white';
+    const starName = String(star['name']).split('_').join(' ');
 
     return (
       <center>
@@ -24,7 +25,7 @@ function StarViewer() {
             <img width="200" height="200" alt='' src={imgSrc} style={{marginBottom:'50px', border:'2px', transform:'translateY(25%)'}} />
           </div>
           <div style={{marginTop:'50px'}}>
-            <h1>{star['name']}</h1>
+            <h1>{starName}</h1>
             <p>Constellation: {star['constellation']}</p>
             <p>Size: {star['size']}</p>
             <p>Number of Constituents: {star['constituents']}</p>

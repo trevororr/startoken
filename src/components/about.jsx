@@ -25,6 +25,12 @@ function About() {
               <p>All stars will be able to be bought and sold on OpenSea.</p>
             </Card.Body>
           </Card>
+          <Card style={{margin:'50px 0 50px 0'}}>
+            <Card.Header style={{fontSize: "1.6em", backgroundColor:'#212529', color:'white'}}  className="text-center">Genuine Stars</Card.Header>
+            <Card.Body style={{background:'#303030', color:'white'}}>
+              <p>All of the stars are actual Proper named stars with the actual color and number of constituents of the system.</p>
+            </Card.Body>
+          </Card>
         </div>
         </div>
     </div>
